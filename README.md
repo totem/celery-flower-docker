@@ -12,9 +12,9 @@ sudo docker run -it --rm --name cluster-deployer -p 5555:5555 totem/celery-flowe
 
 ## Access Flower
 
-To access flower go to url:  [http://172.17.42.1:5555](http://172.17.42.1:5555).  The default
-credentials for the flower instance is root:changeit. 
-(It is higly recommended to change the default credentials. See run configuration.)
+To access flower go to url:  [http://172.17.42.1:5555](http://172.17.42.1:5555).  
+The default credentials for the flower instance is username:root  password:changeit. 
+(It is highly recommended to change the default credentials. See run configuration.)
 
 If your are using dynamic port mapping using (-P), inspect the container to determine the mapped
 port for 5555.
