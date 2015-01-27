@@ -23,7 +23,13 @@ port for 5555.
 | Env Variable | Description | Default Value (Docker)|
 | ------------ | ----------- |--------------------- |
 | FLOWER_PORT | Port to be used by flower | 5555 |
-| FLOWER_BROKER_API | API for broker. | http://guest:guest@172.17.42.1:15672/api/ |
-| BROKER_URL | URL for the broker | amqp://guest:guest@172.17.42.1:5672 |
+| AMQP_USERNAME | Rabbitmq broker username | guest |
+| AMQP_PASSWORD | Rabbitmq broker password | guest |
+| AMQP_HOST | Rabbitmq host | 172.17.42.1 |
+| AMQP_PORT | Rabbitmq port | 5672 |
+| AMQP_ADMIN_USERNAME | Rabbitmq admin username | guest |
+| AMQP_ADMIN_PASSWORD | Rabbitmq admin password | guest |
+| AMQP_ADMIN_HOST | Rabbitmq admin host | 172.17.42.1 |
+| AMQP_ADMIN_PORT | Rabbitmq admin port | 15672 |
 | FLOWER_MAX_TASKS | Max tasks to be stored in memory. | 3600 |
 | FLOWER_BASIC_AUTH | Authentication for flower (username:passowrd) | root:changeit |
