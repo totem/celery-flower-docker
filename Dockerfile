@@ -9,4 +9,5 @@ WORKDIR /opt/celery-flower
 EXPOSE 5555
 
 ENTRYPOINT ["/usr/local/bin/celery"]
-CMD ["--loglevel=info","-P", "gevent", "flower"]
+
+CMD ["--loglevel=info", "flower"]
