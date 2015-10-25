@@ -1,4 +1,4 @@
-FROM totem/python-base:2.7-trusty
+FROM python:3.5.0
 
 ADD requirements.txt /opt/celery-flower/
 RUN pip install -r /opt/celery-flower/requirements.txt
