@@ -32,4 +32,4 @@ port for 5555.
 | AMQP_ADMIN_HOST | Rabbitmq admin host | 172.17.42.1 |
 | AMQP_ADMIN_PORT | Rabbitmq admin port | 15672 |
 | FLOWER_MAX_TASKS | Max tasks to be stored in memory. | 3600 |
-| FLOWER_BASIC_AUTH | Authentication for flower (username:passowrd) | root:changeit |
+| flower_basic_auth | Authentication for flower (username:passowrd) | root:changeit |
