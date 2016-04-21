@@ -1,0 +1,54 @@
+version: '2'
+
+networks:
+  local:
+    driver: 'bridge'
+
+services:
+  flower:
+    build: .
+    networks:
+      local:
+        aliases:
+          - flower.local
+    environment:
+      ETCD_HOST: 'etcd.local'
+      AMQP_HOST: 'rabbitmq.local'
+      AMQP_ADMIN_HOST: 'rabbitmq.local'
+      DISCOVER_RABBITMQ: 'false'
+    ports:
+      - 5555
+
+    depends_on:
+      - etcd
+      - rabbitmq
+    restart: always
+    volumes:
+      - ".:/opt/celery-flower"
+
+  rabbitmq:
+    image: 'rabbitmq:3.6'
+    networks:
+      local:
+        aliases:
+          - rabbitmq.local
+
+  etcd:
+    image: 'quay.io/coreos/etcd'
+    command: [
+      '-name', 'etcd0',
+      '-advertise-client-urls','http://etcd.local:2379,http://etcd.local:4001',
+      '-listen-client-urls', 'http://0.0.0.0:2379,http://0.0.0.0:4001',
+      '-initial-advertise-peer-urls', 'http://etcd.local:2380',
+      '-listen-peer-urls', 'http://0.0.0.0:2380',
+      '-initial-cluster-token', 'etcd-cluster-1',
+      '-initial-cluster', 'etcd0=http://etcd.local:2380',
+      '-initial-cluster-state', 'new',
+    ]
+
+    networks:
+      local:
+        aliases:
+          - etcd.local
+    volumes:
+      - /usr/share/ca-certificates/:/etc/ssl/certs
