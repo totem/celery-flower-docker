@@ -8,6 +8,6 @@ DEFAULT_BROKER_URL = [
     'amqp://{}:{}@{}:{}'.format(
         AMQP_USERNAME, AMQP_PASSWORD, host.strip(), AMQP_PORT
     ) for host in AMQP_HOST.split(',') if host.strip()
-    ]
+]
 
 BROKER_URL = os.getenv('BROKER_URL', DEFAULT_BROKER_URL)
