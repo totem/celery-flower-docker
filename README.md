@@ -7,19 +7,19 @@ In order to run flower using  docker , run
 command: 
 
 ```
-sudo docker run -it --rm --name cluster-deployer -p 5555:5555 totem/celery-flower-docker
+sudo docker run -it --rm --name flower -p 5555:5555 totem/celery-flower-docker
 ```
 
 ## Access Flower
 
-To access flower go to url:  [http://172.17.42.1:5555](http://172.17.42.1:5555).  
-The default credentials for the flower instance is username:root  password:changeit. 
+To access flower go to url:  [http://172.17.42.1:5555](http://172.17.42.1:5555).
+The default credentials for the flower instance is username:root  password:changeit.
 (It is highly recommended to change the default credentials. See run configuration.)
 
 If your are using dynamic port mapping using (-P), inspect the container to determine the mapped
 port for 5555.
 
-## Run Configuration (Environment Variables)  
+## Run Configuration (Environment Variables)
 | Env Variable | Description | Default Value (Docker)|
 | ------------ | ----------- |--------------------- |
 | FLOWER_PORT | Port to be used by flower | 5555 |

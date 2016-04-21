@@ -1,0 +1,7 @@
+.idea
+.git*
+LICENSE
+README.md
+*.iml
+docker-compose.yml
+__pycache__

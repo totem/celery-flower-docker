@@ -1,3 +1,0 @@
-Celery==3.1.20
-flower==0.8.4
-gevent==1.0.2
