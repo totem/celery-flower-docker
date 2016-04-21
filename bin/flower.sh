@@ -4,7 +4,7 @@
 export LOG_LEVEL="${LOG_LEVEL:-info}"
 export HOST_IP="${HOST_IP:-$(/sbin/ip route|awk '/default/ { print $3 }')}"
 export AMQP_HOST="${AMQP_HOST:-$HOST_IP}"
-export AMQP_ADMIN_HOST="${AMQP_HOST:-$HOST_IP}"
+export AMQP_ADMIN_HOST="${AMQP_ADMIN_HOST:-$AMQP_HOST}"
 export DISCOVER_RABBITMQ="${DISCOVER_RABBITMQ:-false}"
 export ETCD_HOST="${ETCD_HOST:-$HOST_IP}"
 export ETCD_PORT="${ETCD_PORT:-4001}"
@@ -23,6 +23,7 @@ if [ "$DISCOVER_RABBITMQ" == "true" ]; then
     >&2 echo "Rabbitmq could not be discovered - sleeping"
     sleep 10
     export AMQP_HOST="$($ETCDCTL ls $ETCD_TOTEM_BASE/rabbitmq/nodes | xargs -n 1  $ETCDCTL get | xargs echo -n | tr ' ' ',')"
+    export AMQP_ADMIN_HOST="$AMQP_HOST"
   done
 fi
 
