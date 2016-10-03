@@ -5,6 +5,7 @@ ENV ETCDCTL_VERSION v2.2.5
 ENV DUMB_INIT_VERSION 1.0.1
 
 RUN apk add --no-cache --update \
+        openssl \
         curl \
 
     # Etcdctl
